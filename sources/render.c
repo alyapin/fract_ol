@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 18:24:36 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/12 20:36:37 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/14 18:47:07 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 
 void	render(t_mlx *win)
 {
-	ft_memset(win->img->data_address, 0xFFFFFF, WIDTH * HEIGHT);
-	mandelbrot(win->img, win);
+	ft_bzero(win->img->data_address, WIDTH * HEIGHT * 4);
+	if (win->type == Julia)
+		algorithm_fract(win, julia);
+	if (win->type == Mandelbrot)
+		algorithm_fract(win, mandelbrot);
 	mlx_put_image_to_window(win->mlx, win->win, win->img->image, 0, 0);
 }

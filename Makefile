@@ -6,7 +6,7 @@
 #    By: kzina <kzina@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/12 16:32:52 by kzina             #+#    #+#              #
-#    Updated: 2019/08/12 20:50:03 by kzina            ###   ########.fr        #
+#    Updated: 2019/08/14 18:52:27 by kzina            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,11 @@ HEADER = ./includes/fract_ol.h
 
 SRC =   main.c\
 		init_mlx.c\
-		mandelbrot.c\
+		algorithm.c\
 		math.c\
 		render.c\
+		type_shape.c\
+		controls.c\
 
 OBJ	= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
