@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:48:05 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/14 19:03:12 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/14 19:16:47 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@ int		key_press(int keycode, t_mlx *param)
 		mlx_del(param);
 	}
 	if (keycode == 125)
-		param->dx -= 10;
-	if (keycode == 126)
-		param->dx += 10;
-	if (keycode == 123)
-		param->dy += 10;
-	if (keycode == 124)
 		param->dy -= 10;
+	if (keycode == 126)
+		param->dy += 10;
+	if (keycode == 123)
+		param->dx += 10;
+	if (keycode == 124)
+		param->dx -= 10;
 	if (keycode == 89 || keycode == 91)
 	{
 		if (keycode == 89)
 		{
-			param->k.re -= 0.05;
-			param->k.im -= 0.05;
+			param->k.re -= 0.01;
+			param->k.im -= 0.01;
 		}
 		if (keycode == 91)
 		{
-			param->k.re += 0.05;
-			param->k.im += 0.05;
+			param->k.re += 0.01;
+			param->k.im += 0.01;
 		}
 	}
 	if (keycode == 78 || keycode == 69)
