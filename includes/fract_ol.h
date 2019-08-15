@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/15 17:22:25 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/15 18:34:30 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef	struct	s_mlx
 	int			start;
 	int			finish;
 	double		shift;
+	int			button;
 }				t_mlx;
 
 t_mlx			*init_mlx(void);
