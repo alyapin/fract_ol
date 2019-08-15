@@ -6,14 +6,12 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:46:41 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/14 18:46:49 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/15 15:47:44 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../includes/fract_ol.h"
-#include "../libft/libft.h"
-#include "mlx.h"
 
 int		julia(t_mlx *win)
 {

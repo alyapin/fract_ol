@@ -6,13 +6,11 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:37:48 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/14 18:46:05 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/15 17:17:57 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
-#include "../libft/libft.h"
-#include "mlx.h"
 
 void		mlx_del(t_mlx *win)
 {
@@ -41,8 +39,8 @@ t_mlx		*init_mlx(void)
 	window->max.re = 2.0;
 	window->max.im = window->min.im +
 	(window->max.re - window->min.re) * HEIGHT / WIDTH;
-	window->m = 15;
-	window->dx = 250;
+	window->m = 50;
+	window->dx = 0;
 	window->dy = 250;
 	window->k = get_complx(-0.4, 0.6);
 	return (window);

@@ -6,13 +6,11 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:48:05 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/14 19:16:47 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/15 17:31:17 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
-#include "../libft/libft.h"
-#include "mlx.h"
 
 int		key_press(int keycode, t_mlx *param)
 {
@@ -33,13 +31,13 @@ int		key_press(int keycode, t_mlx *param)
 	{
 		if (keycode == 89)
 		{
-			param->k.re -= 0.01;
-			param->k.im -= 0.01;
+			param->k.re -= 0.005;
+			param->k.im -= 0.005;
 		}
 		if (keycode == 91)
 		{
-			param->k.re += 0.01;
-			param->k.im += 0.01;
+			param->k.re += 0.005;
+			param->k.im += 0.005;
 		}
 	}
 	if (keycode == 78 || keycode == 69)
@@ -49,6 +47,20 @@ int		key_press(int keycode, t_mlx *param)
 				param->m--;
 		if (keycode == 69)
 			param->m++;
+	}
+	if (keycode == 18 || keycode == 19)
+	{
+		if (keycode == 18 && param->formula != mandelbrot)
+		{
+			param->formula = mandelbrot;
+			param->m = 50;
+		}
+		if (keycode == 19 && param->formula != julia)
+		{
+			param->formula = julia;
+			param->m = 50;
+			param->k = get_complx(-0.4, 0.6);
+		}
 	}
 	render(param);
 	return (0);

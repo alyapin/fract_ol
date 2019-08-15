@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/14 19:03:26 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/15 17:22:25 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <pthread.h>
+# include "mlx.h"
+# include "../libft/libft.h"
 # define WIDTH 2000
 # define HEIGHT 1400
+# define NUM_THREADS 10
 
 typedef enum
 {
@@ -63,25 +67,20 @@ typedef	struct	s_mlx
 	void		*win;
 	t_image		*img;
 	t_image		*menu;
-	t_cord		**cord;
 	int			coloms;
 	int			lines;
 	int			fact;
 	int			dx;
 	int			dy;
-	int			dz;
-	double		x;
-	double		y;
-	int			color1;
-	int			color2;
-	int			color3;
-	int			mid;
 	t_complex	max;
 	t_complex	min;
 	t_complex	c;
 	t_complex	k;
-	t_factorial	type;
+	int			(*formula)(struct s_mlx *fractol);
 	int			m;
+	int			start;
+	int			finish;
+	double		shift;
 }				t_mlx;
 
 t_mlx			*init_mlx(void);
@@ -94,7 +93,7 @@ int				mandelbrot(t_mlx *win);
 t_image			*init_img(t_mlx *win);
 int				color(int iter, t_mlx *win);
 void			controls(t_mlx *param);
-void			algorithm_fract(t_mlx *win, int (*f)(t_mlx *));
+void			algorithm_fract(t_mlx *win);
 int				julia(t_mlx *win);
 void			mlx_del(t_mlx *win);
 
