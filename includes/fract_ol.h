@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/15 18:34:30 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/30 18:26:32 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <fcntl.h>
 # include <pthread.h>
 # include "mlx.h"
+# include <math.h>
+# include <sys/types.h>
 # include "../libft/libft.h"
 # define WIDTH 2000
 # define HEIGHT 1400
@@ -67,9 +69,6 @@ typedef	struct	s_mlx
 	void		*win;
 	t_image		*img;
 	t_image		*menu;
-	int			coloms;
-	int			lines;
-	int			fact;
 	int			dx;
 	int			dy;
 	t_complex	max;
@@ -82,6 +81,9 @@ typedef	struct	s_mlx
 	int			finish;
 	double		shift;
 	int			button;
+	double		z;
+	int			x;
+	int			y;
 }				t_mlx;
 
 t_mlx			*init_mlx(void);
@@ -96,6 +98,7 @@ int				color(int iter, t_mlx *win);
 void			controls(t_mlx *param);
 void			algorithm_fract(t_mlx *win);
 int				julia(t_mlx *win);
+int				mandelbar(t_mlx *win);
 void			mlx_del(t_mlx *win);
 
 #endif

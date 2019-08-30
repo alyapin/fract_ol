@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:45:04 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/15 18:50:09 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/30 16:42:44 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	algorithm_fract(t_mlx *win)
 	fact = get_fact(win->min, win->max);
 	while (y < win->finish)
 	{
-		win->c.im = win->max.im - (y - win->dy) * fact.im * 1.2;
+		win->c.im = win->max.im - (y - win->dy + win->y) * fact.im * win->z;
 		x = 0;
 		while (x < WIDTH)
 		{
-			win->c.re = win->min.re + (x - win->dx) * fact.re * 1.2;
+			win->c.re = win->min.re + (x - win->dx + win->x) * fact.re * win->z;
 			win->img->data_address[x + (y * win->img->line_size)] = color(win->formula(win), win);
 			x++;
 		}

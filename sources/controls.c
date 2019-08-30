@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:48:05 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/15 18:35:28 by kzina            ###   ########.fr       */
+/*   Updated: 2019/08/30 16:43:19 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,29 @@ int		key_press(int keycode, t_mlx *param)
 		if (keycode == 69)
 			param->m++;
 	}
-	if (keycode == 18 || keycode == 19)
+	if (keycode == 18 || keycode == 19 || keycode == 20)
 	{
 		if (keycode == 18 && param->formula != mandelbrot)
 		{
 			param->formula = mandelbrot;
 			param->m = 50;
+			param->x = 0;
+			param->y = 0;
 		}
 		if (keycode == 19 && param->formula != julia)
 		{
 			param->formula = julia;
 			param->m = 50;
 			param->k = get_complx(-0.4, 0.6);
+			param->x = 0;
+			param->y = 0;
+		}
+		if (keycode == 20 && param->formula != mandelbar)
+		{
+			param->formula = mandelbar;
+			param->m = 50;
+			param->x = 0;
+			param->y = 0;
 		}
 	}
 	render(param);
@@ -84,6 +95,20 @@ int		mouse_press(int button, int x, int y, t_mlx *param)
 	{
 		param->button = 1;
 	}
+	if (button == 5)
+	{
+		if (param->z != 0)
+			param->z -= 0.2;
+		param->x = x - WIDTH / 2;
+		param->y = y - HEIGHT / 2;
+	}
+	if (button == 4)
+	{
+		param->z += 0.2;
+		param->x = x - WIDTH / 2;
+		param->y = y - HEIGHT / 2;
+	}
+	render(param);
 	return (0);
 }
 
