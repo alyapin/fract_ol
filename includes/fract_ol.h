@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/30 18:26:32 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/05 17:59:33 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # include <math.h>
 # include <sys/types.h>
 # include "../libft/libft.h"
-# define WIDTH 2000
-# define HEIGHT 1400
+# define WIDTH 1200
+# define HEIGHT 1200
 # define NUM_THREADS 10
+# define ABS(x) x > 0 ? x : -x
 
 typedef enum
 {
@@ -63,6 +64,15 @@ typedef struct	s_complex
 	double		im;
 }				t_complex;
 
+typedef	struct	s_mouse
+{
+	int			lastx;
+	int			lasty;
+	int			x;
+	id_t		y;
+}				t_mouse;
+
+
 typedef	struct	s_mlx
 {
 	void		*mlx;
@@ -75,6 +85,8 @@ typedef	struct	s_mlx
 	t_complex	min;
 	t_complex	c;
 	t_complex	k;
+	t_complex	fact;
+	t_mouse		mouse;
 	int			(*formula)(struct s_mlx *fractol);
 	int			m;
 	int			start;
@@ -95,10 +107,12 @@ void			render(t_mlx *win);
 int				mandelbrot(t_mlx *win);
 t_image			*init_img(t_mlx *win);
 int				color(int iter, t_mlx *win);
-void			controls(t_mlx *param);
+void			controls(t_mlx *param, pid_t pid);
 void			algorithm_fract(t_mlx *win);
 int				julia(t_mlx *win);
 int				mandelbar(t_mlx *win);
+int				mandelbrot_perp(t_mlx *win);
 void			mlx_del(t_mlx *win);
+double			my_fabs(double x);
 
 #endif

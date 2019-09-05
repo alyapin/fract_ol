@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 18:24:36 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/15 17:49:11 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/05 15:58:09 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ void	render(t_mlx *win)
 	while (i-- > 0)
 		if (pthread_join(threads[i], NULL))
 			ft_putendl("join error");
-	algorithm_fract(win);
 	mlx_put_image_to_window(win->mlx, win->win, win->img->image, 0, 0);
 }

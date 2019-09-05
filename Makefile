@@ -6,7 +6,7 @@
 #    By: kzina <kzina@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/12 16:32:52 by kzina             #+#    #+#              #
-#    Updated: 2019/08/14 18:52:27 by kzina            ###   ########.fr        #
+#    Updated: 2019/09/05 15:34:07 by kzina            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC =   main.c\
 OBJ	= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g 
+CFLAGS = -Wall -Wextra -Werror -g -O3
 
 MLX = ./minilibx_macos/
 MLX_LIB	= $(addprefix $(MLX),mlx.a)

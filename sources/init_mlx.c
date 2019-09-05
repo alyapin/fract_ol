@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:37:48 by kzina             #+#    #+#             */
-/*   Updated: 2019/08/30 16:38:55 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/05 17:59:27 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ t_mlx		*init_mlx(void)
 	window->max.im = window->min.im +
 	(window->max.re - window->min.re) * HEIGHT / WIDTH;
 	window->m = 50;
-	window->dx = 0;
-	window->dy = 250;
 	window->k = get_complx(-0.4, 0.6);
 	window->z = 1.0;
 	window->x = 0;
 	window->y = 0;
+	window->mouse.x = HEIGHT / 2;
+	window->mouse.y = WIDTH / 2;
 	return (window);
 }
 
