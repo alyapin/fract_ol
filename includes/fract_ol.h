@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/05 17:59:33 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/09 19:34:45 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef	struct	s_mouse
 	int			lastx;
 	int			lasty;
 	int			x;
-	id_t		y;
+	int		y;
 }				t_mouse;
 
 
@@ -99,7 +99,7 @@ typedef	struct	s_mlx
 }				t_mlx;
 
 t_mlx			*init_mlx(void);
-t_complex		get_complx(double re, double im);
+t_complex		get_complex(double re, double im);
 t_complex		get_fact(t_complex min, t_complex max);
 double			size_vector(t_complex z);
 t_complex		mandel(t_complex z, t_complex c);
