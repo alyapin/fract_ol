@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 18:24:36 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/05 15:58:09 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 18:38:16 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,25 @@ void	render(t_mlx *win)
 	t_mlx		fact[NUM_THREADS];
 	int			i;
 
-	i = 0;
+	i = -1;
 	ft_bzero(win->img->data_address, WIDTH * HEIGHT * 4);
-	while (i < NUM_THREADS)
+	while (++i < NUM_THREADS)
 	{
 		fact[i] = *win;
 		fact[i].start = i * (HEIGHT / NUM_THREADS);
 		fact[i].finish = (i + 1) * (HEIGHT / NUM_THREADS);
-		if (pthread_create(&threads[i], NULL, (void *(*)(void *))algorithm_fract, (void *)&fact[i]))
+		if (pthread_create(&threads[i], NULL,
+			(void *(*)(void *))algorithm_fract, (void *)&fact[i]))
 		{
 			ft_putendl("thread error");
 			return ;
 		}
-		i++;
 	}
 	while (i-- > 0)
 		if (pthread_join(threads[i], NULL))
 			ft_putendl("join error");
-	mlx_put_image_to_window(win->mlx, win->win, win->img->image, 0, 0);
+	if (!win->help_button)
+		mlx_put_image_to_window(win->mlx, win->win, win->img->image, 0, 0);
+	else
+		mlx_put_image_to_window(win->mlx, win->win, win->menu->image, 0, 0);
 }

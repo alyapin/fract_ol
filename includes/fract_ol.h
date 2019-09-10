@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/09 19:34:45 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 19:05:18 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,31 +88,41 @@ typedef	struct	s_mlx
 	t_complex	fact;
 	t_mouse		mouse;
 	int			(*formula)(struct s_mlx *fractol);
-	int			m;
+	int			max_iter;
 	int			start;
 	int			finish;
 	double		shift;
-	int			button;
+	int			mouse_button;
+	int			help_button;
 	double		z;
 	int			x;
 	int			y;
 }				t_mlx;
 
-t_mlx			*init_mlx(void);
+t_mlx			*init_mlx(void *mlx);
 t_complex		get_complex(double re, double im);
 t_complex		get_fact(t_complex min, t_complex max);
 double			size_vector(t_complex z);
 t_complex		mandel(t_complex z, t_complex c);
 void			render(t_mlx *win);
-int				mandelbrot(t_mlx *win);
-t_image			*init_img(t_mlx *win);
+void			init_image(t_mlx *ses);
 int				color(int iter, t_mlx *win);
-void			controls(t_mlx *param, pid_t pid);
+void			controls(t_mlx *param);
 void			algorithm_fract(t_mlx *win);
+int				mandelbrot(t_mlx *win);
 int				julia(t_mlx *win);
 int				mandelbar(t_mlx *win);
 int				mandelbrot_perp(t_mlx *win);
-void			mlx_del(t_mlx *win);
+int				cubic_mandelbar(t_mlx *win);
+int				heart_mandelbrot(t_mlx *win);
+int				buffalo(t_mlx *win);
+int				quasi_perpendicular_3rd(t_mlx *win);
+void			mlx_del(t_mlx **win);
 double			my_fabs(double x);
+double			recount(double start, double end, double fact);
+void			reset_mlx(t_mlx *param);
+void			interpolation_mouse(t_mlx *param, t_complex fact);
+int				key_press(int keycode, t_mlx *param);
+int				key_release(int keycode, t_mlx *param);
 
 #endif
