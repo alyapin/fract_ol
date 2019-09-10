@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:21:44 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 20:04:53 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 20:25:42 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ int		choose_fractol(t_mlx *win, char *str)
 		win->formula = quasi_perpendicular_3rd;
 	else
 	{
-		mlx_del(win);
-		ft_putendl("wrong argument(s)");
-		return (1);
+		win->formula = NULL;
 	}
 	return (0);
 }

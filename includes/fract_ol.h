@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 19:59:24 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 20:21:12 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef	struct	s_mlx
 	void		*win;
 	t_image		*img;
 	t_image		*menu;
+	t_image		*death;
 	int			dx;
 	int			dy;
 	t_complex	max;
@@ -124,5 +125,6 @@ void			reset_mlx(t_mlx *param);
 void			interpolation_mouse(t_mlx *param, t_complex fact);
 int				key_press(int keycode, t_mlx *param);
 int				key_release(int keycode, t_mlx *param);
+void			init_death(t_mlx *ses);
 
 #endif

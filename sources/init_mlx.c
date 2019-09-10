@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:37:48 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 19:59:03 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 20:21:25 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_mlx		*init_mlx(void *mlx)
 	window->mlx = mlx;
 	window->win = mlx_new_window(window->mlx, WIDTH, HEIGHT, "Fract'ol");
 	init_image(window);
+	init_death(window);
 	window->min.re = -2.0;
 	window->min.im = -2.0;
 	window->max.re = 2.0;
