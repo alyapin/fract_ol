@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 19:05:18 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 19:59:24 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int				cubic_mandelbar(t_mlx *win);
 int				heart_mandelbrot(t_mlx *win);
 int				buffalo(t_mlx *win);
 int				quasi_perpendicular_3rd(t_mlx *win);
-void			mlx_del(t_mlx **win);
+void			mlx_del(t_mlx *win);
 double			my_fabs(double x);
 double			recount(double start, double end, double fact);
 void			reset_mlx(t_mlx *param);

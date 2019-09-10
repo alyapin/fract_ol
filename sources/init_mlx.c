@@ -6,27 +6,27 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:37:48 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 19:08:37 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 19:59:03 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
 
-void		mlx_del(t_mlx **win)
+void		mlx_del(t_mlx *win)
 {
-	int i;
-
-	i = -1;
-	while (++i < 2)
+	if (win->win != NULL)
+		mlx_destroy_window(win->mlx, win->win);
+	if (win->img != NULL)
 	{
-		if (win[i]->win != NULL)
-			mlx_destroy_window(win[i]->mlx, win[i]->win);
-		if (win[i]->img != NULL)
-		{
-			if (win[i]->img->image != NULL)
-				mlx_destroy_image(win[i]->mlx, win[i]->img->image);
-			ft_memdel((void **)win[i]->img);
-		}
+		if (win->img->image != NULL)
+			mlx_destroy_image(win->mlx, win->img->image);
+		ft_memdel((void **)win->img);
+	}
+	if (win->menu != NULL)
+	{
+		if (win->menu->image != NULL)
+			mlx_destroy_image(win->mlx, win->menu->image);
+		ft_memdel((void **)win->menu);
 	}
 }
 

@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/fract_ol",
-            "args": ["Julia", "Mandelbrot"],
+            "args": ["0"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

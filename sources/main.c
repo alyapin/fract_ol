@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:21:44 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 17:31:12 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 20:04:53 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,25 @@ void	usage(void)
 	ft_putendl("\t8 -------- Quasi Perp 3rd");
 }
 
-int		choose_fractol(t_mlx *win[2], char *str, int i)
+int		choose_fractol(t_mlx *win, char *str)
 {
 	if (ft_strequ(str, "Mandelbrot") == 1 || ft_strequ(str, "1") == 1)
-		win[i]->formula = mandelbrot;
+		win->formula = mandelbrot;
 	else if (ft_strequ(str, "Julia") == 1 || ft_strequ(str, "2") == 1)
-		win[i]->formula = julia;
+		win->formula = julia;
 	else if (ft_strequ(str, "Mandelbar") == 1 || ft_strequ(str, "3") == 1)
-		win[i]->formula = mandelbar;
+		win->formula = mandelbar;
 	else if (ft_strequ(str, "Perp Mandelbrot") == 1 || ft_strequ(str, "4") == 1)
-		win[i]->formula = mandelbrot_perp;
+		win->formula = mandelbrot_perp;
 	else if (ft_strequ(str, "Cubic Mandelbar") == 1 || ft_strequ(str, "5") == 1)
-		win[i]->formula = cubic_mandelbar;
+		win->formula = cubic_mandelbar;
 	else if (ft_strequ(str, "Heart Mandelbrot") == 1
 		|| ft_strequ(str, "6") == 1)
-		win[i]->formula = heart_mandelbrot;
+		win->formula = heart_mandelbrot;
 	else if (ft_strequ(str, "Buffalo") == 1 || ft_strequ(str, "7") == 1)
-		win[i]->formula = buffalo;
+		win->formula = buffalo;
 	else if (ft_strequ(str, "Quasi Perp 3rd") == 1 || ft_strequ(str, "8") == 1)
-		win[i]->formula = quasi_perpendicular_3rd;
+		win->formula = quasi_perpendicular_3rd;
 	else
 	{
 		mlx_del(win);
@@ -65,7 +65,7 @@ int		multi_window(char **str, int ac)
 	{
 		if ((win[i] = init_mlx(mlx)) == NULL)
 			ft_putendl("error of initialization");
-		if (choose_fractol(win, str[i + 1], i))
+		if (choose_fractol(win[i], str[i + 1]))
 			return (1);
 		controls(win[i]);
 		render(win[i]);

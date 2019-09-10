@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 17:50:32 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 18:37:19 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/10 19:59:41 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		key_press(int keycode, t_mlx *param)
 	if (keycode == 53)
 	{
 		exit(0);
-		mlx_del(&param);
+		mlx_del(param);
 	}
 	if (keycode == 78 || keycode == 69)
 	{
