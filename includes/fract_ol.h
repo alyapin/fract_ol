@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:30:16 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 20:21:12 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/12 14:21:38 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ typedef	struct	s_mlx
 	void		*win;
 	t_image		*img;
 	t_image		*menu;
-	t_image		*death;
 	int			dx;
 	int			dy;
 	t_complex	max;
@@ -106,7 +105,7 @@ t_complex		get_fact(t_complex min, t_complex max);
 double			size_vector(t_complex z);
 t_complex		mandel(t_complex z, t_complex c);
 void			render(t_mlx *win);
-void			init_image(t_mlx *ses);
+int				init_image(t_mlx *ses);
 int				color(int iter, t_mlx *win);
 void			controls(t_mlx *param);
 void			algorithm_fract(t_mlx *win);
@@ -125,6 +124,5 @@ void			reset_mlx(t_mlx *param);
 void			interpolation_mouse(t_mlx *param, t_complex fact);
 int				key_press(int keycode, t_mlx *param);
 int				key_release(int keycode, t_mlx *param);
-void			init_death(t_mlx *ses);
 
 #endif

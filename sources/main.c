@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:21:44 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 20:25:42 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/12 14:22:13 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ int		choose_fractol(t_mlx *win, char *str)
 		win->formula = quasi_perpendicular_3rd;
 	else
 	{
-		win->formula = NULL;
+		usage();
+		mlx_del(win);
+		return (1);
 	}
 	return (0);
 }
@@ -62,7 +64,10 @@ int		multi_window(char **str, int ac)
 	while (++i < ac - 1)
 	{
 		if ((win[i] = init_mlx(mlx)) == NULL)
+		{
 			ft_putendl("error of initialization");
+			return (1);
+		}
 		if (choose_fractol(win[i], str[i + 1]))
 			return (1);
 		controls(win[i]);

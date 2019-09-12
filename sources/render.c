@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 18:24:36 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 20:25:02 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/12 13:16:53 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ void	render(t_mlx *win)
 		if (pthread_join(threads[i], NULL))
 			ft_putendl("join error");
 	if (!win->help_button)
-		if (win->formula)
-			mlx_put_image_to_window(win->mlx, win->win, win->img->image, 0, 0);
-		else
-			mlx_put_image_to_window(win->mlx, win->win, win->death->image, 0, 0);
+		mlx_put_image_to_window(win->mlx, win->win, win->img->image, 0, 0);
 	else
 		mlx_put_image_to_window(win->mlx, win->win, win->menu->image, 0, 0);
 }

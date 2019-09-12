@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/fract_ol",
-            "args": ["0"],
+            "args": ["1"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

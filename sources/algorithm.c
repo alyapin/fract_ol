@@ -6,27 +6,11 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:45:04 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 20:25:26 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/12 13:15:56 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
-
-void		init_death(t_mlx *ses)
-{
-	t_image	*death;
-	int		width;
-	int		height;
-
-	width = 1200;
-	height = 1200;
-	if ((death = (t_image *)ft_memalloc(sizeof(t_image))) == NULL)
-		return ;
-	if ((death->image = mlx_xpm_file_to_image(ses->mlx,
-	"menu/death.xpm", &width, &height)) == NULL)
-		return ;
-	ses->death = death;
-}
 
 void	algorithm_fract(t_mlx *win)
 {

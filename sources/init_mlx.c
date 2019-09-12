@@ -6,7 +6,7 @@
 /*   By: kzina <kzina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 16:37:48 by kzina             #+#    #+#             */
-/*   Updated: 2019/09/10 20:21:25 by kzina            ###   ########.fr       */
+/*   Updated: 2019/09/12 14:21:03 by kzina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_mlx		*init_mlx(void *mlx)
 		return (NULL);
 	window->mlx = mlx;
 	window->win = mlx_new_window(window->mlx, WIDTH, HEIGHT, "Fract'ol");
-	init_image(window);
-	init_death(window);
+	if (init_image(window))
+		return (NULL);
 	window->min.re = -2.0;
 	window->min.im = -2.0;
 	window->max.re = 2.0;
@@ -55,7 +55,7 @@ t_mlx		*init_mlx(void *mlx)
 	return (window);
 }
 
-void		init_image(t_mlx *ses)
+int			init_image(t_mlx *ses)
 {
 	t_image	*img;
 	t_image	*menu;
@@ -65,19 +65,20 @@ void		init_image(t_mlx *ses)
 	width = 1200;
 	height = 1200;
 	if ((img = (t_image *)ft_memalloc(sizeof(t_image))) == NULL)
-		return ;
+		return (1);
 	if ((img->image = mlx_new_image(ses->mlx, WIDTH, HEIGHT)) == NULL)
-		return ;
+		return (1);
 	if ((menu = (t_image *)ft_memalloc(sizeof(t_image))) == NULL)
-		return ;
+		return (1);
 	if ((menu->image = mlx_xpm_file_to_image(ses->mlx,
 	"menu/menu.xpm", &width, &height)) == NULL)
-		return ;
+		return (1);
 	img->data_address = (int *)mlx_get_data_addr(img->image,
 	&img->bpp, &img->line_size, &img->endian);
 	img->line_size /= 4;
 	ses->menu = menu;
 	ses->img = img;
+	return (0);
 }
 
 t_complex	get_complex(double re, double im)
